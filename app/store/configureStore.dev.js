@@ -11,9 +11,6 @@ export function configureStore(initialState) {
     return createStore(
         rootReducer,
         initialState,
-        compose(
-            applyMiddleware(middleware),
-            DevTools.instrument()
-        )
+        compose(applyMiddleware(middleware), DevTools.instrument())
     );
 }

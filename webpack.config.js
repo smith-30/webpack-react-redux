@@ -20,15 +20,15 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: 'app/index.tpl.html',
-          inject: 'body',
-          filename: 'index.html'
+            template: 'app/index.tpl.html',
+            inject: 'body',
+            filename: 'index.html'
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('development')
+            'process.env.NODE_ENV': JSON.stringify('development')
         })
     ],
     eslint: {
@@ -56,9 +56,13 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'
+                loader:
+                    'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'
             },
-            { test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
+            {
+                test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
+                loader: 'url?limit=10000&mimetype=application/font-woff'
+            },
             { test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/, loader: 'file' }
         ]
     }

@@ -12,8 +12,11 @@ const FilterableTable = ({ filter, onFilter }) => {
         <div className={filterableTable}>
             <input
                 value={filter}
-                ref={node => {input = node;}}
-                onChange={() => onFilter(input.value)} />
+                ref={node => {
+                    input = node;
+                }}
+                onChange={() => onFilter(input.value)}
+            />
 
             <ProductTable filter={filter} />
         </div>
@@ -25,19 +28,16 @@ FilterableTable.propTypes = {
     onFilter: PropTypes.func
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         filter: state.filter
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         onFilter: filterText => dispatch(filterTable(filterText))
     };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(FilterableTable);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterableTable);
